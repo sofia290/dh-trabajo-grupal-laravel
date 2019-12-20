@@ -15,6 +15,25 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+/*Route::get('/', function(){
+  return view('index');
+});*/
+Route::get("/questions/all","QuestionController@index");
+Route::get('/questions/create','QuestionController@create');
+Route::post('/questions/create','QuestionController@store');
+Route::get('/questions/{id}','QuestionController@show');
+Route::get('/questions/edit/{id}','QuestionController@edit');
+Route::post('/questions/edit/{id}','QuestionController@update');
+Route::get('/questions/destroy/{id}','QuestionController@destroy');
+
+Route::get("/answers/all","AnswerController@index");
+Route::get('/answers/create','AnswerController@create');
+Route::post('/answers/create','AnswerController@store');
+Route::get('/answers/{id}','AnswerController@show');
+Route::get('/answers/edit/{id}','AnswerController@edit');
+Route::post('/answers/edit/{id}','AnswerController@update');
+Route::get('/answers/destroy/{id}','AnswerController@destroy');
+
 /*Route::get('/miprimeraRuta', function(){
     return "Creé mi primera ruta";
 });
@@ -56,7 +75,7 @@ Route::get('/peliculas/{id}',function($id){
         "rating" => 9.0
     ]
 ];
-    return view('peliculas',compact('peliculas', 'id'));    
+    return view('peliculas',compact('peliculas', 'id'));
 });
 
 Route::get('/peliculas',function(){

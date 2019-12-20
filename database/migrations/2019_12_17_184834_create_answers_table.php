@@ -17,10 +17,11 @@ class CreateAnswersTable extends Migration
             $table->bigIncrements('id');
             $table->string('text');
             $table->tinyInteger('correct');
-            $table->unsignedInteger('question_id');
+            $table->unsignedBigInteger('question_id');
             $table->foreign('question_id')->references('id')->on('questions');
             $table->timestamps();
         });
+        Schema::enableForeignKeyConstraints();
     }
 
     /**
@@ -32,7 +33,8 @@ class CreateAnswersTable extends Migration
     {
         Schema::table("answers",function(Blueprint $table) {
             $table->dropForeign('answers_question_id_foreign');
-            
+
           });
+          Schema::dropIfExists('answers');
     }
 }
