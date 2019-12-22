@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Question;
+use App\Answer;
 use Illuminate\Http\Request;
 
 class QuestionController extends Controller
@@ -15,7 +16,8 @@ class QuestionController extends Controller
     public function index()
     {
       $preguntas = Question::all();
-      return view("/questions/all", compact("preguntas"));
+      $respuestas = Answer::all();
+      return view("/questions/all", compact("preguntas", "respuestas"));
     }
 
     /**

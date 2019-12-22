@@ -7,8 +7,13 @@
   <title>Lista de preguntas</title>
   <link href="https://fonts.googleapis.com/css?family=Courier+Prime&display=swap" rel="stylesheet">
   <style>
+  *{
+    box-sizing: border-box;
+  }
   body{
     font-family: 'Courier Prime', monospace;
+    margin: 0;
+    padding: 0;
   }
   div.container{
     width:100%;
@@ -29,16 +34,16 @@
   </style>
 </head>
 <body>
-  <h3>Todas las preguntas</h3>
+  <h3 class="text-center">Todas las preguntas</h3>
   <div class="container">
 
     @foreach ($preguntas as $pregunta)
     <div class="pregunta">
-      <span> {{$pregunta->id}}</span>
-      <h5>{{$pregunta->text}}</h5>
+      <h5>{{$pregunta->id}} . {{$pregunta->text}}</h5>
       <p> Puntos: {{$pregunta->points}}</p>
       <a href="/pregunta/{{$pregunta->id}}"> Ver detalle</a>
-      <a href="/questions/edit/{{$pregunta->id}}"> Editar </a>
+      <a href="/questions/edit/{{$pregunta->id}}"> Editar</a>
+      <a href="#"> Respuestas asignadas </a>
     </div>
     @endforeach
   </div>

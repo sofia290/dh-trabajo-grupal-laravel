@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('score');
             $table->tinyInteger('activated');
             $table->string('password');
-            $table->date('fecha_de_nac');
+            $table->date('birth_date');
             $table->rememberToken();
             $table->timestamps();
         });
