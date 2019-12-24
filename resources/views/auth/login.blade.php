@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-12 col-lg-6">
           <h1 class="text-center "> {{ __('Inicia sesión') }} </h1>
-          <p> ¿No tenes cuenta? <a href="registro.php">Registrate aca </a></p>
+          <p> ¿No tenes cuenta? <a href="/register"> Registrate aca </a></p>
           <form class="" action="{{ route('login') }}" method="post">
             @csrf
             <div class="form-group row">
@@ -26,6 +26,11 @@
               </div>
               <div class="form-group">
                   <label for="password">{{ __('Contraseña') }}</label>
+                  @if (Route::has('password.request'))
+                      <a class="btn btn-link" href="{{ route('password.request') }}">
+                          {{ __('¿Olvidaste tu contraseña?') }}
+                      </a>
+                  @endif
 
                   <div class="input-group">
                     <div class="input-group-prepend">
@@ -59,12 +64,6 @@
                       <button type="submit" class="btn btn-success">
                           {{ __('Iniciar sesión') }}
                       </button>
-
-                      @if (Route::has('password.request'))
-                          <a class="btn btn-link" href="{{ route('password.request') }}">
-                              {{ __('¿Olvidaste tu contraseña?') }}
-                          </a>
-                      @endif
                   </div>
               </div>
           </form>

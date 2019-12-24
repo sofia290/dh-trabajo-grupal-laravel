@@ -45,7 +45,7 @@
         <p> Es incorrecta </p>
       @endif
       <p> Pregunta asignada: <a href="/questions/{{$respuesta->question_id}}">{{$respuesta->question_id}} </a></p>
-      <a href="/respuesta/{{$respuesta->id}}"> Ver detalle</a>
+      <a href="/answers/destroy/{{$respuesta->id}}"> Eliminar </a>
       <a href="/answers/edit/{{$respuesta->id}}"> Editar </a>
     </div>
     @endforeach

@@ -15,9 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/index', function(){
+Route::get('/', function(){
   return view('index');
 });
+
+Route::get('/faqs', function(){
+  return view('faqs');
+});
+
 Route::get("/questions/all","QuestionController@index");
 Route::get('/questions/create','QuestionController@create');
 Route::post('/questions/create','QuestionController@store');
@@ -34,6 +39,7 @@ Route::get('/answers/edit/{id}','AnswerController@edit');
 Route::post('/answers/edit/{id}','AnswerController@update');
 Route::get('/answers/destroy/{id}','AnswerController@destroy');
 
+Route::get('/game', 'GameController@index')->name('game');
 
 Auth::routes();
 

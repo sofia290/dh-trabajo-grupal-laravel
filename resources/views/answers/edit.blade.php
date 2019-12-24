@@ -36,11 +36,18 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="question">Asignar respuesta</label>
+            <label for="points"> Correcto o no </label>
+            <div class="input-group">
+              <input id="points" name="correct" placeholder="Ingrese 0 si es incorrecto, 1 si es correcto" type="number" class="form-control" value="{{$respuesta->correct}}">
+              <span style="color:red;">{{$errors->first('correct')}}</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="question">Asignar pregunta</label>
             <div>
               <select id="question_id" name="question_id" class="custom-select">
-                @foreach ($respuestas as $respuesta)
-                  <option value="{{$respuesta->id}}">{{$respuesta->text}}</option>
+                @foreach ($preguntas as $pregunta)
+                  <option value="{{$pregunta->id}}">{{$pregunta->text}}</option>
                 @endforeach
               </select>
             </div>

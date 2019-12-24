@@ -1,9 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.layout')
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+          <h1 class="text-center"> ¡Bienvenido/a {{ Auth::user()->username }}!</h1>
+          <p> ¿Querés empezar a jugar? Hace click <a href="/game"> acá</a> </p>
             <div class="card">
                 <div class="card-header">Dashboard</div>
 

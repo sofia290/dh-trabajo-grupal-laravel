@@ -48,6 +48,20 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+      $messages = [
+        "first_name.required" => "El nombre es obligatorio",
+        "last_name.required" => "El apellido es obligatorio",
+        "email.required" => "El correo electrónico es obligatorio",
+        "email.email" => "Ingrese un mail valido",
+        "email.unique" => "Ya existe una cuenta con este email",
+        "password.required" => "La contraseña es obligatoria",
+        "password.confirmed" => "Las contraseñas no coinciden",
+        "username.required" => "El username es obligatorio",
+        "username.min" => "El username debe tener al menos dos caracteres",
+        "username.unique" => "Ya existe un usuario con este username",
+        "birth_date.required" => "La fecha de nacimiento es obligatoria",
+        "min" => "El campo debe tener al menos dos caracteres"
+      ];
         return Validator::make($data, [
             'first_name' => ['required', 'string', 'max:255', 'min:2'],
             'last_name' => ['required', 'string', 'max:255', 'min:2'],
@@ -55,7 +69,7 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'username' => ['required', 'string', 'min:2', 'unique:users'],
             'birth_date' => ['required', 'date']
-        ]);
+        ], $messages );
     }
 
     /**

@@ -83,7 +83,8 @@ class AnswerController extends Controller
     public function edit($id)
     {
       $respuesta = Answer::find($id);
-      return view('answers.edit', compact('respuesta'));
+      $preguntas = Question::all();
+      return view('answers.edit', compact('respuesta', 'preguntas'));
 
     }
 
