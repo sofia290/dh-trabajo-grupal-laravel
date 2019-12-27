@@ -49,7 +49,7 @@ html,body{
 
 /* JUEGO */
 
-.game{
+#game{
   background-color: rgb(45, 207, 93);
   width: 100%!important;
   margin: 0;
@@ -59,7 +59,7 @@ html,body{
 .answers{
   background-color: white;
   border: 2px solid black;
-  box-shadow:5px 5px 5px gray/*rgb(57, 176, 35)*/;
+  box-shadow:5px 5px 0px gray/*rgb(57, 176, 35)*/;
   text-align: center;
   margin: 20px;
   font-size: 25px;
@@ -71,6 +71,10 @@ html,body{
   color: rgb(30, 152, 66);
   font-weight: bold;
   cursor: pointer;
+}
+
+.answers:active{
+  box-shadow: 0px;
 }
 
 .title{
@@ -85,8 +89,21 @@ html,body{
 }
 #timer{
   vertical-align: middle;
+  z-index: 1;
   font-size: 2.25rem;
   margin-right: 20px;
+  margin-top: 5px;
+  border: 2px solid green;
+  background-color: white;
+  transition: background-color 3s ease-out;
+  border-radius: 50px;
+  width: 75px;
+  height: 75px;
+}
+
+.countdown{
+  text-align: center;
+  margin-top: 6px;
 }
 
 .correct{

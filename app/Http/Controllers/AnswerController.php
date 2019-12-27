@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Answer;
 use App\Question;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 
 class AnswerController extends Controller
@@ -56,7 +57,7 @@ class AnswerController extends Controller
 
       $nuevaRespuesta = new Answer();
       $nuevaRespuesta->text = $request->text;
-      $nuevaRespuesta->correct = $request->correct;
+      $nuevaRespuesta->correct = Hash::make($request->correct);
       $nuevaRespuesta->question_id = $request->question_id;
       $nuevaRespuesta->save();
 
