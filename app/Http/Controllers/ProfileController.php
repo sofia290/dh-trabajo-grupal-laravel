@@ -3,19 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
 
-
-class UserController extends Controller
+class ProfileController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
+
+    public function __construct()
+    {
+         $this->middleware('auth');
+    }
+
     public function index()
     {
-        //
+      return view('profile');
     }
 
     /**
@@ -58,8 +63,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-      $user = User::find($id);
-      return view('accounts.edit', compact('user'));
+        //
     }
 
     /**
@@ -71,22 +75,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-
-      /*$nombre = $request->first_name;
-      $lastName = $request->last_name;
-      $email = $request->email;
-      $birth_date = $request->birth_date;
-      $username = $request->username;
-
-      $user = User::find($id);
-      $user->first_name = $nombre;
-      $user->last_name = $lastName;
-      $user->email = $email;
-      $user->birth_date = $birth_date;
-      $user->username = $username;
-      $user->save();*/
-
-      return redirect("/profile");
+        //
     }
 
     /**

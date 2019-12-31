@@ -101,7 +101,7 @@
                   </div>
                 </div>
                 <input id="username" name="username" placeholder="Cree un nombre de usuario" type="text" required="required" class="form-control @error('username') is-invalid @enderror" required autocomplete="new-username">
-              </div
+              </div>
             </div>
 
             <div class="form-group">
@@ -118,6 +118,23 @@
                   </div>
                 </div>
                 <input placeholder="Introduzca su fecha de nacimiento" class="textbox-n form-control @error('birth_date') is-invalid @enderror" required autocomplete="new-birth_date" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="fecha-de-nacimiento" name="birth_date">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="profile_picture">{{ __('Foto de perfil')}}</label>
+              @error('profile_picture')
+                <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+                </span>
+              @enderror
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                    @fa('fa-image')
+                  </div>
+                </div>
+                <input id="profile_picture" type="file" class="form-control @error('profile_picture') is-invalid @enderror" name="profile_picture" placeholder="Suba una foto de perfil">
               </div>
             </div>
 

@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/index';
+    protected $redirectTo = '/login';
 
     /**
      * Create a new controller instance.
@@ -60,7 +60,8 @@ class RegisterController extends Controller
         "username.min" => "El username debe tener al menos dos caracteres",
         "username.unique" => "Ya existe un usuario con este username",
         "birth_date.required" => "La fecha de nacimiento es obligatoria",
-        "min" => "El campo debe tener al menos dos caracteres"
+        "min" => "El campo debe tener al menos dos caracteres",
+        "mimes" => "El formato tiene que ser jpeg, jpg o png"
       ];
         return Validator::make($data, [
             'first_name' => ['required', 'string', 'max:255', 'min:2'],
@@ -68,7 +69,8 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'username' => ['required', 'string', 'min:2', 'unique:users'],
-            'birth_date' => ['required', 'date']
+            'birth_date' => ['required', 'date'],
+            'profile_picture' => ['mimes:jpeg,bmp,png,jpg']
         ], $messages );
     }
 
@@ -80,13 +82,24 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $request = request();
+        $profileImage = $request->file('profile_picture')->storeAs( "public", $data['email']. time(). '.jpg');
+
+
+        $profileImageSaveAsName = $data['email'] . time(). '.jpg';
+
+
+        $upload_path = 'storage/';
+        $profile_image_url = $upload_path . $profileImageSaveAsName;
+
         return User::create([
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'username' => $data['username'],
-            'birth_date' => $data['birth_date'],
+            'profile_picture' => $profile_image_url,
+            'birth_date' => $data['birth_date']
         ]);
     }
 }

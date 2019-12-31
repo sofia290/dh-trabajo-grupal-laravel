@@ -41,6 +41,12 @@ Route::get('/answers/destroy/{id}','AnswerController@destroy');
 
 Route::get('/game', 'GameController@index')->name('game');
 
+Route::get('/profile', 'ProfileController@index')->name('profile');
+
 Auth::routes();
 
+
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/accounts/edit/{id}', 'UserController@edit');
+Route::post('/accounts/edit/{id}', 'UserController@update');
