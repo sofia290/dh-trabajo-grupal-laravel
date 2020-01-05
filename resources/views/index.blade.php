@@ -1,10 +1,9 @@
-@extends('layouts.layout')
+@extends('layouts.newlayout')
 
 
 @section('content')
+  <img src="{{ asset('images/logogreen2.jpg')}}" id="img-logo" alt="">
 
-  <img src="{{ asset('images/logo.png')}}" id="img-logo" alt="">
 
-  
 
 @endsection

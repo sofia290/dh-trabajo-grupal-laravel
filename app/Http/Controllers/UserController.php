@@ -72,7 +72,7 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
 
-      /*$nombre = $request->first_name;
+      $nombre = $request->first_name;
       $lastName = $request->last_name;
       $email = $request->email;
       $birth_date = $request->birth_date;
@@ -84,7 +84,7 @@ class UserController extends Controller
       $user->email = $email;
       $user->birth_date = $birth_date;
       $user->username = $username;
-      $user->save();*/
+      $user->save();
 
       return redirect("/profile");
     }
@@ -99,4 +99,23 @@ class UserController extends Controller
     {
         //
     }
+
+    public function changeProfilePicture(Request $request, $id)
+    {
+      $user = User::find($id);
+      $profilePicture = $request->file('profile_picture')->storeAs("public", $user->email . time() . '.jpg');
+
+      $profileImageSaveAsName = $user->email . time() . '.jpg';
+      $upload_path = '../../storage/';
+      $profile_image_url = $upload_path . $profileImageSaveAsName;
+
+      $user->profile_picture = $profile_image_url;
+      $user->save();
+
+      return redirect("/profile");
+
+    }
+
+
+
 }

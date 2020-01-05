@@ -83,14 +83,15 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $request = request();
-        $profileImage = $request->file('profile_picture')->storeAs( "public", $data['email']. time(). '.jpg');
-
-
-        $profileImageSaveAsName = $data['email'] . time(). '.jpg';
-
-
-        $upload_path = 'storage/';
-        $profile_image_url = $upload_path . $profileImageSaveAsName;
+        if ($request->file('profile_picture')) {
+          $profileImage = $request->file('profile_picture')->storeAs( "public", $data['email']. time(). '.jpg');
+          $profileImageSaveAsName = $data['email'] . time(). '.jpg';
+          $upload_path = 'storage/';
+          $profile_image_url = $upload_path . $profileImageSaveAsName;
+        }
+        else {
+          $profile_image_url = null;
+        }
 
         return User::create([
             'first_name' => $data['first_name'],

@@ -50,6 +50,7 @@ class AnswerController extends Controller
         "text.required" => "La pregunta es obligatoria",
         "correct.required" => "Ingrese si es correcta o no",
         "question_id.required" => "Ingrese el id de la pregunta correspondiente",
+        "text.unique" => "Ya existe esta respuesta"
       ];
 
       //validacion
@@ -57,11 +58,11 @@ class AnswerController extends Controller
 
       $nuevaRespuesta = new Answer();
       $nuevaRespuesta->text = $request->text;
-      $nuevaRespuesta->correct = Hash::make($request->correct);
+      $nuevaRespuesta->correct = $request->correct;
       $nuevaRespuesta->question_id = $request->question_id;
       $nuevaRespuesta->save();
 
-      return redirect("/answers/all");
+      return redirect("/questions/all");
     }
 
     /**
@@ -109,7 +110,7 @@ class AnswerController extends Controller
 
       $answer->save();
 
-      return redirect("/answers/all");
+      return redirect("/questions/all");
     }
 
     /**

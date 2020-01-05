@@ -39,7 +39,7 @@ class QuestionController extends Controller
     public function store(Request $request)
     {
         $reglas = [
-          "text" => "required",
+          "text" => "required|unique:questions",
           "points" => "required|integer|min:5|max:20"
         ];
         $mensajes = [

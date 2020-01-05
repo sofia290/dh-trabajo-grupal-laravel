@@ -19,12 +19,14 @@ class CreateUsersTable extends Migration
             $table->string('last_name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('username');
-            $table->string('profile_picture');
-            $table->string('score');
-            $table->tinyInteger('activated');
+            $table->string('username')->unique();
+            $table->string('profile_picture')->nullable();
+            $table->integer('score')->default(0);
+            $table->integer('answered_questions')->default(0);
+            $table->tinyInteger('activated')->default(1);
             $table->string('password');
             $table->date('birth_date');
+            $table->boolean('is_admin')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });

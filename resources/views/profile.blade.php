@@ -3,7 +3,11 @@
 @section('content')
   <div class="contenedor">
     <div class="image-container">
-      <img src="{{ Auth::user()->profile_picture}}" alt="" class="user-picture">
+      @if (Auth::user()->profile_picture)
+        <img src="{{ Auth::user()->profile_picture}}" alt="" class="user-picture">
+        @else
+          <img src="{{ asset('images/usuario.png') }}" alt=""  class="user-picture">
+      @endif
       <div class="text">
         <h2> {{ Auth::user()->username}}</h2>
         <p> Cambiar foto de perfil </p>
