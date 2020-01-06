@@ -31,7 +31,7 @@ class GameController extends Controller
     $randomNumber = rand(1,$numberQuestions);
     if(isset($request->token)){
       if ($request->user_answer == 0) {
-        return redirect('/home'); 
+        return redirect('/home');
       }
       $preguntaAnterior = Question::find($request->token);
       $user = User::find($request->user_id);
@@ -62,6 +62,39 @@ class GameController extends Controller
     $pregunta = Question::find($randomNumber);
     $respuestas = Answer::where('question_id', '=', $randomNumber)->get();
     return redirect('game', compact("pregunta", "respuestas"));
+  }
+
+  public function create()
+  {
+    return view("createquestion");
+  }
+
+  public function store(Request $request)
+  {
+    /*$reglas = [
+      "text" => "required|unique:questions"
+
+    ];
+    $mensajes = [
+      "required" => "Este campo es obligatorio",
+      "text.unique" => "Ya existe la pregunta"
+    ];
+    $this->validate($request, $reglas, $mensajes);*/
+    $nuevaPregunta = new Question();
+    $nuevaPregunta->text = $request->text_question;
+    $nuevaPregunta->points = 15;
+    $nuevaPregunta->verified = 0;
+    $nuevaPregunta->created_by = $request->creator;
+    $nuevaPregunta->save();
+    $preguntaCreada = Question::where("text", "=", $request->text_question)->get();
+    $respuesta = new Answer();
+    $respuesta->text = $request->text_answer2;
+    $respuesta->correct = 0;
+    $respuesta->question_id = $preguntaCreada[0]["id"];
+    $respuesta->save();
+    dd($respuesta);
+return "Pregunta guardada";
+exit;
   }
 
 }

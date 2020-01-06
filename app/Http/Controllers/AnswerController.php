@@ -16,7 +16,7 @@ class AnswerController extends Controller
      */
     public function index()
     {
-      $respuestas = Answer::all();
+      $respuestas = Answer::all()->sortBy("question_id");
       return view("/answers/all", compact("respuestas"));
 
     }
@@ -40,7 +40,7 @@ class AnswerController extends Controller
      */
     public function store(Request $request)
     {
-      $pregunta = Question::where('text', '=', $request->question_id);
+      $pregunta = Question::where('text', '=', $request->question_id)->get();
       $reglas = [
         "text" => "required",
         "correct" => "required|integer|min:0|max:1",

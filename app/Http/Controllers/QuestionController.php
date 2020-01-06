@@ -126,4 +126,8 @@ class QuestionController extends Controller
     public function getLink(){
         return "<a href='/questions/".$this->id."'>" ."</a>";
     }
+    public function verifyQuestion()
+    {
+      // code...
+    }
 }

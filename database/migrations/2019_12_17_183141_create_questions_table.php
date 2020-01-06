@@ -17,6 +17,9 @@ class CreateQuestionsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('points');
             $table->string('text');
+            $table->boolean('verified')->default(true);
+            $table->string('created_by')->default('admin');
+            $table->string('sources')->nullable();
             $table->timestamps();
         });
     }

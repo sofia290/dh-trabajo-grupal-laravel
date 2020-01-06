@@ -13,11 +13,7 @@
     <title>{{ config('app.name', 'Ecopreguntas') }}</title>
 
     <!-- Scripts-->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.0/sweetalert2.css"/>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.0/sweetalert2.js"></script>
 
 
     <!--Styles -->
@@ -27,7 +23,7 @@
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     <link rel="stylesheet" href="{{asset('css/loader.css')}}">
 
-    <link rel="shortcut icon" type="image/png" href="{{ asset('images/recycle-solid.png') }}">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('images/recycle-logo.png') }}">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=McLaren&display=swap" rel="stylesheet">
@@ -64,7 +60,7 @@
           @else
             <li class="nav-item dropdown d-sm-none d-none d-lg-block collapse navbar-collapse" id="bs-navbar-collapse-user">
               <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                {{ Auth::user()->username }} <span class="caret"></span>
+                {{ Auth::user()->username }}
                 @if (Auth::user()->profile_picture)
                   <img src="{{ Auth::user()->profile_picture}}" alt="" class="user-picture-small">
                 @else
@@ -100,7 +96,7 @@
 <footer class="container-fluid">
   <div class="row">
     <div class="col-lg-4">
-      <img src="{{asset('images/logonew.png')}}" alt="">
+      <img src="{{asset('images/logowhite.png')}}" alt="">
     </div>
     <div class="col-lg-2">
       <ul>

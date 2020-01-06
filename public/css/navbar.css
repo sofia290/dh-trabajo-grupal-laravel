@@ -66,10 +66,10 @@
   #sidebar .sidebar-header {
     padding: 20px;
     background: #07b968;
+    border-bottom: 1px solid #ddd;
   }
 
   #sidebar ul.components {
-    padding: 20px 0;
     border-bottom: 1px solid #07b968;
   }
 
@@ -82,11 +82,15 @@
     padding: 10px;
     font-size: 1.1em;
     display: block;
+    color: white;
+    transition: ease-out 0.5s;
   }
 
   #sidebar ul li a:hover {
-    color: #7386D5;
+    color: #07b968;
     background: #fff;
+    text-decoration: none;
+    font-weight: 600;
   }
 
   #sidebarCollapse{
@@ -115,14 +119,14 @@
     margin-bottom: 5px;
   }
 
-  a.download {
+  a.info {
     background: #fff;
-    color: #7386D5;
+    color: #00ac6d!important;
+    font-weight: 600;
   }
 
-  a.article,
-  a.article:hover {
-    background: #6d7fcc !important;
+  a.info:hover {
+    background: #00ac6d !important;
     color: #fff !important;
   }
 
@@ -134,7 +138,6 @@
     width: 100%;
     min-height: 100vh;
     transition: all 0.3s;
-    position: absolute;
-    top: 0;
-    right: 0;
   }
+
+/* https://coolors.co/6bffb8-2ceaa3-4bea85-28965a-2a6041 */

@@ -1,6 +1,6 @@
 /* JUEGO */
 
-#game{
+#game, #creator{
   background-color: rgb(45, 207, 93);
   width: 100%!important;
   margin: 0;
@@ -31,7 +31,7 @@
 .title{
   text-align: center;
 }
-#pregunta{
+#pregunta, #pregunta_nueva{
   margin-top: 1rem;
   font-size: 25px;
   display: inline;
@@ -170,9 +170,38 @@ animation: spin 1.5s linear infinite;
   animation: line-cross-right 0.75s;
 }
 
-#prueba{
-  width: 50px
+/*------------- CREADOR DE PREGUNTAS ----------*/
+
+#pregunta_nueva input{
+  background: none;
+  display: inline;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
+
+#pregunta_nueva input, .answers input{
+  text-align: center;
+  border: 0;
+  width: 100%;
+}
+.answers{
+  position: relative;
+}
+.answers span{
+  position: absolute;
+  top:0;
+  left: 20px;
+}
+#new_question{
+  font-size: 20px;
+  background-color: white;
+  border-radius: 100px;
+  padding: 30px;
+  border: green solid 3px;
+}
+
+/*------------------- KEYFRAMES -----------------*/
 
 @keyframes icon-line-tip {
   0% {

@@ -30,7 +30,7 @@ $(document).ready(function () {
       $('.icon-line').last().addClass('line-cross line-cross-right');
       //$('#result-message').append("INCORRECTO").css("color", "red").css("top", "470px");
     }
-    $('#user_answer').val(opcion);
+    $('#user_answer').val(opcion);y
   });
 });
 

@@ -13,11 +13,14 @@
     box-sizing: border-box;
   }
   body{
+    overflow-y: scroll;
+  }
+  body{
     font-family: 'Courier Prime', monospace;
     margin: 0;
     padding: 0;
   }
-  div.container{
+  div.contenedor{
     width:100%;
     padding: 0;
     margin: 0;
@@ -30,11 +33,11 @@
   }
   div.pregunta{
     box-sizing: border-box;
-    width: 50%;
-    height: 630px;
+    width: 30%;
+    height: 650px;
     padding: 20px;
     border: 2px solid green;
-    font-size: 18px;
+    font-size: 16px;
     margin-bottom: 50px;
   }
   .answers{
@@ -49,13 +52,29 @@
   </style>
 </head>
 <body>
-  <h1 class="text-center">Todas las preguntas</h3>
-  <div class="container">
+  <div class="row text-center">
+    <div class="col-3">
+      <a href="/questions/create"> Agregar pregunta</a>
+    </div>
+    <div class="col-6">
+      <h1 class="text-center">Todas las preguntas</h3>
+      </div>
+    <div class="col-3">
+      <a href="/answers/all"> Lista de respuestas </a>
+    </div>
+  </div>
+  <div class="contenedor">
 
     @foreach ($preguntas as $pregunta)
     <div class="pregunta">
       <h4>{{$pregunta->id}} . {{$pregunta->text}}</h4>
       <p> Puntos: {{$pregunta->points}}</p>
+      @if ($pregunta->verified)
+        <p> Verificada</p>
+        @else
+          <p> No verificada</p>
+          <a href="#"> Verificar </a>
+      @endif
       <a href="/pregunta/{{$pregunta->id}}"> Ver detalle</a>
       <a href="/questions/edit/{{$pregunta->id}}"> Editar</a>
       <a href="/answers/create"> Agregar respuesta </a>

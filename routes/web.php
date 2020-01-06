@@ -26,6 +26,8 @@ Route::get('/faqs', function(){
 
 Route::get('/game', 'GameController@index')->name('game');
 Route::post('/game', 'GameController@index');
+Route::get('/createquestion', 'GameController@create');
+Route::post('/createquestion', 'GameController@store');
 
 Route::get('/profile', 'ProfileController@index')->name('profile');
 
