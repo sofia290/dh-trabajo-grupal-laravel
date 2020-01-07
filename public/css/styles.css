@@ -72,17 +72,18 @@ footer a:hover{
   vertical-align: super;
 }
 
-.text h2{
+.text h2{ /* TEXTO PERFIL USERNAME*/
   margin-bottom: 0;
   font-weight: 400;
 }
-.text p, #profile_picture_change{
+.text a, #profile_picture_change{
   font-size: 16px;
   color: rgb(55, 221, 97);
   font-weight: bold;
 }
 .user-data{
   width: 100%;
+  margin-left: 20px;
 }
 .user-picture, .user-picture-small{
   object-fit: cover;
@@ -111,6 +112,16 @@ footer a:hover{
   list-style: none;
 }
 
+.friends li{
+  display: inline;
+}
+
+.friends li img{
+  width: 10%;
+  object-fit: cover;
+  display: inline-block;
+  border-radius: 50%;
+}
 .contenedor{
   /*display: flex;*/
 }

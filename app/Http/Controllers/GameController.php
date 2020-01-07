@@ -27,7 +27,7 @@ class GameController extends Controller
   public function index()
   {
     $request = request();
-    $numberQuestions = Question::all()->count();
+    $numberQuestions = Question::where("verified", "=", 1)->count();
     $randomNumber = rand(1,$numberQuestions);
     if(isset($request->token)){
       if ($request->user_answer == 0) {
@@ -50,19 +50,6 @@ class GameController extends Controller
     return view('game', compact("pregunta", "respuestas"));
   }
 
-  public function nextQuestion()
-  {
-    $request = request();
-    $idPreguntaAnterior = $request->token;
-    $numberQuestions = Question::all()->count();
-    $randomNumber = rand(1,$numberQuestions);
-    if ($randomNumber == $idPreguntaAnterior) {
-      $randomNumber = rand(1,$numberQuestions);
-    }
-    $pregunta = Question::find($randomNumber);
-    $respuestas = Answer::where('question_id', '=', $randomNumber)->get();
-    return redirect('game', compact("pregunta", "respuestas"));
-  }
 
   public function create()
   {
@@ -87,12 +74,26 @@ class GameController extends Controller
     $nuevaPregunta->created_by = $request->creator;
     $nuevaPregunta->save();
     $preguntaCreada = Question::where("text", "=", $request->text_question)->get();
-    $respuesta = new Answer();
-    $respuesta->text = $request->text_answer2;
-    $respuesta->correct = 0;
-    $respuesta->question_id = $preguntaCreada[0]["id"];
-    $respuesta->save();
-    dd($respuesta);
+    $respuestaCorrecta = new Answer();
+    $respuestaCorrecta->text = $request->text_answer_correct;
+    $respuestaCorrecta->correct = 0;
+    $respuestaCorrecta->question_id = $preguntaCreada[0]["id"];
+    $respuestaCorrecta->save();
+    $respuesta2 = new Answer();
+    $respuesta2->text = $request->text_answer2;
+    $respuesta2->correct = 0;
+    $respuesta2->question_id = $preguntaCreada[0]["id"];
+    $respuesta2->save();
+    $respuesta3 = new Answer();
+    $respuesta3->text = $request->text_answer3;
+    $respuesta3->correct = 0;
+    $respuesta3->question_id = $preguntaCreada[0]["id"];
+    $respuesta3->save();
+    $respuesta4 = new Answer();
+    $respuesta4->text = $request->text_answer4;
+    $respuesta4->correct = 0;
+    $respuesta4->question_id = $preguntaCreada[0]["id"];
+    $respuesta4->save();
 return "Pregunta guardada";
 exit;
   }

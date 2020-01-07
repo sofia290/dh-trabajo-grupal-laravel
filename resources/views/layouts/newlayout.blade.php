@@ -50,10 +50,10 @@
       <ul class="list-unstyled components">
         <!--<p>Dummy Heading</p>-->
         <li class="active">
-          <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Inicio</a>
+          <a href="/home">Inicio</a>
         </li>
         <li>
-          <a href="#">Mi perfil</a>
+          <a href="/profile">Mi perfil</a>
           <a href="#"> Logros </a>
           <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false"> Creador de preguntas </a>
           <ul class="collapse list-unstyled" id="pageSubmenu">
@@ -67,7 +67,7 @@
               <a href="#"> Calificar preguntas </a>
             </li>
             <li>
-              <a href="#"> Estatus de preguntas </a>
+              <a href="#"> Estado de preguntas enviadas </a>
             </li>
           </ul>
         </li>

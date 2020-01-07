@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.newlayout')
 
 @section('content')
   <div class="contenedor">
@@ -10,7 +10,7 @@
       @endif
       <div class="text">
         <h2> {{ Auth::user()->username}}</h2>
-        <p> Cambiar foto de perfil </p>
+        <a data-toggle="modal" data-target="#modalAvatar"> Cambiar foto de perfil </a>
       </div>
     </div>
     <div class="user-data">
@@ -23,6 +23,15 @@
       </ul>
     </div>
   </div>
+  <div class="user-data">
+    <h2> Amigos </h2>
+    <ul class="friends">
+      <li> <img src="{{asset('storage/friend.png')}}" alt=""> Amigo 1</li>
+      <li> <img src="{{asset('storage/friend.png')}}" alt=""> Amigo 2</li>
+      <li> <img src="{{asset('storage/friend.png')}}" alt="">  Amigo 3</li>
+      <li> <img src="{{asset('storage/friend.png')}}" alt=""> Amigo 4 </li>
+    </ul>
+  </div>
   <!--<div class="row">
   <div class="col-12 col-sm-4 col-lg-3 image-container">
 
@@ -30,4 +39,5 @@
 <div class="col-12 col-sm-8 col-lg-9 user-data">
 
 </div>-->
+@include('accounts.modalprofile')
 @endsection

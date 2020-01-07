@@ -4,7 +4,8 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-          <h1 class="text-center"> ¡Bienvenido/a {{ Auth::user()->username }}!</h1>
+          <h1 class="text-center mt-3"> {{ Auth::user()->username }}</h1>
+          <img src="" alt="">
           <p> ¿Querés empezar a jugar? Hace click <a href="/game"> acá</a> </p>
             <div class="card">
                 <div class="card-header">Dashboard</div>
