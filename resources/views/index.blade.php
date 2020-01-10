@@ -10,14 +10,14 @@
     <div class="bienvenidacontenedor">
       <div class="bienvenida">
         @if (Auth::user())
-          <h2 class="text-center">Bienvenido/a {{Auth::user()->username}} a Ecopreguntas , esperamos que te diviertas probando tus conocimientos sobre la ecología.</h2>
+          <h2 class="text-center">Bienvenido/a {{Auth::user()->username}} a Ecopreguntas, esperamos que te diviertas probando tus conocimientos sobre la ecología.</h2>
         @elseif (!Auth::user())
           <h2 class="text-center">Bienvenido/a a Ecopreguntas , esperamos que te diviertas probando tus conocimientos sobre la ecología.</h2>
         @endif
       </div>
       <div class="botones">
-        @if(!Auth::user()){
-          <button class="boton" type="button" name="button"> <a href="#">Rregistrate</a></button>
+        @if(!Auth::user())
+          <button class="boton" type="button" name="button"> <a href="#">Registrate</a></button>
           <button  class="boton"type="button" name="button"> <a href="#">Iniciar sesión</a></button>
         @endif
       </div>

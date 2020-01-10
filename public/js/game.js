@@ -5,9 +5,6 @@ $(document).ready(function() {
     $('h1').css('color','#222222');
   }, 1000);
 
-});
-
-$(document).ready(function () {
   $('.answers').on('click', function () { // CLICK EN UNA DE LAS RESPUESTAS
     clearInterval(interval); // Se limpia  el timer
     var opcion = $(this).attr('id'); // La opcion elegida por user
@@ -76,6 +73,5 @@ var respuestaDefinitiva = document.getElementById(respuestaCorrecta.id);
 respuestaDefinitiva.classList.add('correct');
 respuestaDefinitiva.classList.remove('incorrect');
 document.getElementById("user_answer").value = "0";
-document.getElementsByTagName("html")[0].style.overflowY = "hidden";
 
 };

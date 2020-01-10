@@ -229,6 +229,7 @@ footer a:hover{
   width: 95%;
   text-align: center;
   line-height: 20px;
+  z-index: 300;
 }
 
 #my_bar{

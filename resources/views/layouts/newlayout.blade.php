@@ -38,7 +38,7 @@
     <!-- Sidebar  -->
     <nav id="sidebar">
       <div id="dismiss">
-        <i class="fas fa-arrow-left"></i>
+        <i class="fas fa-arrow-left" style="line-height: 50px;position: absolute;top: 10px;right: 10px;"></i>
       </div>
 
       <div class="sidebar-header">

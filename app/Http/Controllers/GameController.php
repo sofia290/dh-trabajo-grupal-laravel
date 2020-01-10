@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Answer;
 use App\Question;
 use App\User;
+use App\Level;
 use Illuminate\Http\Request;
 
 class GameController extends Controller
@@ -27,7 +28,7 @@ class GameController extends Controller
   public function normalMode()
   {
     $request = request();
-    $numberQuestions = Question::where("verified", "=", 1)->where('game_mode_id', '=', '2')->count();
+    $numberQuestions = Question::where("verified", "=", 1)->where('game_mode_id', '=', '1')->count();
     $randomNumber = rand(1,$numberQuestions);
     if(isset($request->token)){
       if ($request->user_answer == 0) {
@@ -40,6 +41,12 @@ class GameController extends Controller
       if ($respuestaElegida->correct == 1) {
         $tiempoExtra = $request->time*50;
         $user->score = $user->score + 300 + $tiempoExtra;
+        $nivelUser = $user->level;
+        $nivel = Level::find($nivelUser);
+
+        if($user->score > $nivel->max_value){
+          $user->level = $user->level + 1;
+        }
       };
       $user->save();
       while ($randomNumber == $request->token) {
@@ -111,7 +118,7 @@ class GameController extends Controller
 
   public function create()
   {
-    return view("createquestion");
+    return view('createquestion');
   }
 
   public function store(Request $request)

@@ -3,7 +3,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel"> Cambiar foto de perfil </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -21,3 +21,10 @@
     </div>
   </div>
 </div>
+
+<!--MAIL_DRIVER=smtp
+MAIL_HOST = stmp.googlemail.com
+MAIL_PORT = 465
+MAIL_USERNAME = marianagaldomartinez@gmail.com (GMAIL)
+MAIL_USERNAME = ENTER_YOUR_GMAIL_PASSWORD
+MAIL_ENCRYPTION=ssl-->
