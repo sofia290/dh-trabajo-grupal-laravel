@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
 
-
-class UserController extends Controller
+class FriendsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +13,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        return view('friends.friends');
     }
 
     /**
@@ -58,8 +56,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-      $user = User::find($id);
-      return view('accounts.edit', compact('user'));
+        //
     }
 
     /**
@@ -71,22 +68,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-
-      $nombre = $request->first_name;
-      $lastName = $request->last_name;
-      $email = $request->email;
-      $birth_date = $request->birth_date;
-      $username = $request->username;
-
-      $user = User::find($id);
-      $user->first_name = $nombre;
-      $user->last_name = $lastName;
-      $user->email = $email;
-      $user->birth_date = $birth_date;
-      $user->username = $username;
-      $user->save();
-
-      return redirect("/profile");
+        //
     }
 
     /**
@@ -99,23 +81,4 @@ class UserController extends Controller
     {
         //
     }
-
-    public function changeProfilePicture(Request $request, $id)
-    {
-      $user = User::find($id);
-      $profilePicture = $request->file('profile_picture')->storeAs("public", $user->email . '.jpg');
-
-      $profileImageSaveAsName = $user->email . '.jpg';
-      $upload_path = '../../storage/';
-      $profile_image_url = $upload_path . $profileImageSaveAsName;
-
-      $user->profile_picture = $profile_image_url;
-      $user->save();
-
-      return redirect("/profile");
-
-    }
-
-
-
 }

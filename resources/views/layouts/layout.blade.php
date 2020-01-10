@@ -62,7 +62,7 @@
               <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                 {{ Auth::user()->username }}
                 @if (Auth::user()->profile_picture)
-                  <img src="{{ Auth::user()->profile_picture}}" alt="" class="user-picture-small">
+                  <img src="../{{ Auth::user()->profile_picture}}" alt="" class="user-picture-small">
                 @else
                   <img src="{{ asset('images/usuario.png') }}" alt=""  class="user-picture-small">
                 @endif

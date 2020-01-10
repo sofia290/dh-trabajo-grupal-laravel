@@ -13,11 +13,13 @@ $(document).ready(function () {
     var opcion = $(this).attr('id'); // La opcion elegida por user
     $('#result-wrapper').css("display","block"); // muestra el resultado
     $('#result').css("display", "block");
+    $('#nextquestion').css("display", "block");
     if (opcion == respuestaCorrecta.id) {
       $(this).addClass('correct');
       $('#result').addClass('correct');
       $('.icon-line').first().addClass('line-tip');
       $('.icon-line').last().addClass('line-long');
+      var tiempoExtra = $('#time').val(counter);
       //$('#result-message').append("CORRECTO").css("color", "green");
     }
     if (opcion != respuestaCorrecta.id) {
@@ -30,7 +32,7 @@ $(document).ready(function () {
       $('.icon-line').last().addClass('line-cross line-cross-right');
       //$('#result-message').append("INCORRECTO").css("color", "red").css("top", "470px");
     }
-    $('#user_answer').val(opcion);y
+    $('#user_answer').val(opcion);
   });
 });
 

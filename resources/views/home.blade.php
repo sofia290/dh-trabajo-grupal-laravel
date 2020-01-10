@@ -1,30 +1,52 @@
 @extends('layouts.newlayout')
 
 @section('content')
-<div class="container">
+  <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-          <h1 class="text-center mt-3"> {{ Auth::user()->username }}</h1>
-          <img src="" alt="">
-          <p> ¿Querés empezar a jugar? Hace click <a href="/game"> acá</a> </p>
-            <div class="card">
-                <div class="card-header">Dashboard</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in!
-                </div>
-            </div>
+      <div class="col-md-8 user-home">
+        <h1 class="text-center mt-3"> {{ Auth::user()->username }}</h1>
+        <img src="{{ Auth::user()->profile_picture}}" class="user-picture" id="user-picture-home" alt="">
+        <p> Puntaje para el siguiente nivel: </p>
+        <div id="my_progress">
+          <span> {{Auth::user()->score}}/3300</span>
+          <div id="my_bar"> </div>
         </div>
+        <div class="row user_level_info">
+          <div class="col-3">
+            <li> <p class="level_points"> Ranking </p> <p> 3.000.000</p> </li>
+          </div>
+          <div class="col-3">
+            <li> <p> Preguntas contestadas </p> <p> {{Auth::user()->answered_questions}} </p></li>
+          </div>
+          <div class="col-3">
+            <li> <p class="level_points"> Nivel </p> <p> 1 </p></li>
+          </div>
+          <div class="col-3">
+            <li> <p class="level_points"> Puntos </p> <p> {{Auth::user()->score}}</p></li>
+          </div>
+        </div>
+      </div>
     </div>
+    <div class="row">
+      <div class="col-lg-4 col-12 game-buttons">
+        <a href="/game"> Jugá al modo clásico</a>
+      </div>
+      <div class="col-lg-4 col-12 game-buttons">
+        <a href="/game/trueorfalse"> Modo Verdadero o Falso</a>
+      </div>
+      <div class="col-lg-4 col-12 game-buttons">
+        <a href="/game/lightning"> Modo Rayo </a>
+      </div>
+    </div>
+    <!--<div class="game-buttons-container">
+      <a href="/game" class="game-buttons"> Jugá al modo clásico</a>
+      <a href="/game/trueorfalse" class="game-buttons"> Modo Verdadero o Falso</a>
+      <a href="/game/lightning" class="game-buttons"> Modo Rayo </a>
+    </div>-->
+
     <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
     <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
     <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
     <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-</div>
+  </div>
 @endsection

@@ -20,7 +20,10 @@ class CreateQuestionsTable extends Migration
             $table->boolean('verified')->default(true);
             $table->string('created_by')->default('admin');
             $table->string('sources')->nullable();
+            $table->unsignedBigInteger('game_mode_id');
             $table->timestamps();
+
+            $table->foreign('game_mode_id')->references('id')->on('game_modes')->onDelete('cascade');;
         });
     }
 
@@ -31,6 +34,10 @@ class CreateQuestionsTable extends Migration
      */
     public function down()
     {
+      Schema::table("questions",function(Blueprint $table) {
+          $table->dropForeign('questions_game_mode_id_foreign');
+
+        });
         Schema::dropIfExists('questions');
     }
 }

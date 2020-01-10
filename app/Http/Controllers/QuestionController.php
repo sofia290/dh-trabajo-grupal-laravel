@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Question;
 use App\Answer;
+use App\GameMode;
 use Illuminate\Http\Request;
 
 class QuestionController extends Controller
@@ -27,7 +28,8 @@ class QuestionController extends Controller
      */
     public function create()
     {
-        return view('questions.create');
+        $modos = GameMode::all();
+        return view('questions.create', compact("modos"));
     }
 
     /**
@@ -40,11 +42,13 @@ class QuestionController extends Controller
     {
         $reglas = [
           "text" => "required|unique:questions",
-          "points" => "required|integer|min:5|max:20"
+          "points" => "required|integer|min:5|max:20",
+          "game_mode" => "required|integer"
         ];
         $mensajes = [
           "text.required" => "La pregunta es obligatoria",
           "points.required" => "Pone la cantidad de puntos de la pregunta",
+          "game_mode.required" => "Ingrese el modo de juego correspondiente",
           "min" => "",
           "max" => ""
         ];
@@ -55,6 +59,8 @@ class QuestionController extends Controller
         $nuevaPregunta = new Question();
         $nuevaPregunta->text = $request->text;
         $nuevaPregunta->points = $request->points;
+        $nuevaPregunta->game_mode_id = $request->game_mode;
+        $nuevaPregunta->true_or_false = $request->debunk;
         $nuevaPregunta->save();
 
         return redirect("/questions/all");

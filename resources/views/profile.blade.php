@@ -24,13 +24,23 @@
     </div>
   </div>
   <div class="user-data">
-    <h2> Amigos </h2>
-    <ul class="friends">
-      <li> <img src="{{asset('storage/friend.png')}}" alt=""> Amigo 1</li>
-      <li> <img src="{{asset('storage/friend.png')}}" alt=""> Amigo 2</li>
-      <li> <img src="{{asset('storage/friend.png')}}" alt="">  Amigo 3</li>
-      <li> <img src="{{asset('storage/friend.png')}}" alt=""> Amigo 4 </li>
-    </ul>
+    <h2> Amigos </h2> <span> <a href="/accounts/friends/add">Agregar amigos </a></span>
+    <div class="container-fluid friends">
+      <div class="row">
+        <div class="col-2">
+          <li> <img src="{{asset('storage/friend.png')}}" alt=""> <a href="#">Amigo 1</a></li>
+        </div>
+        <div class="col-2">
+          <li> <img src="{{asset('storage/friend.png')}}" alt=""> <a href="#">Amigo 2</a></li>
+        </div>
+        <div class="col-2">
+          <li> <img src="{{asset('storage/friend.png')}}" alt=""> <a href="#">Amigo 3</a></li>
+        </div>
+        <div class="col-2">
+          <li> <img src="{{asset('storage/friend.png')}}" alt=""> <a href="#">Amigo 4</a></li>
+        </div>
+      </div>
+    </div>
   </div>
   <!--<div class="row">
   <div class="col-12 col-sm-4 col-lg-3 image-container">

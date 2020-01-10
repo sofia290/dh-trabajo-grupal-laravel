@@ -37,9 +37,9 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="points"> Correcto o no </label>
+            <label for="correct"> Correcto o no </label>
             <div class="input-group">
-              <input id="points" name="correct" placeholder="Ingrese 0 si es incorrecto, 1 si es correcto" type="number" class="form-control" value="0">
+              <input id="correct" name="correct" placeholder="Ingrese 0 si es incorrecto, 1 si es correcto" type="number" class="form-control" value="0">
               <span style="color:red;">{{$errors->first('correct')}}</span>
             </div>
           </div>
