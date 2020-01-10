@@ -1,0 +1,24 @@
+body{
+  padding: 0px;
+  margin:0px;;
+}
+.contenedoramigos{
+
+  border: 1px solid black;
+  display: inline;
+}
+.amigo{
+    border: 1px solid black;
+    display: flex;
+
+}
+.fotoperfil{
+  width: 30%;
+}
+.nombre{
+  color: blue;
+}
+.info{
+  padding: 5px;
+  margin: 10px;
+}
