@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="{{asset('css/game.css')}}">
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     <link rel="stylesheet" href="{{asset('css/loader.css')}}">
+    <link rel="stylesheet" href="{{asset('css/index.css')}}">
 
     <link rel="shortcut icon" type="image/png" href="{{ asset('images/recycle-logo.png') }}">
 
