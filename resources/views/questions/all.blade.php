@@ -58,6 +58,7 @@
     </div>
     <div class="col-6">
       <h1 class="text-center">Todas las preguntas</h3>
+        <span> (Clickear en la respuesta para editar) </span>
       </div>
     <div class="col-3">
       <a href="/answers/all"> Lista de respuestas </a>
@@ -82,10 +83,10 @@
       @foreach ($respuestas as $respuesta)
         @if ($respuesta->question_id == $pregunta->id)
           @if ($respuesta->correct == 1)
-            <p class="answers correct"> {{$respuesta->text}}</p>
+            <a class="answers correct" href="../answers/edit/{{$respuesta->id}}"> {{$respuesta->text}}</a>
           @endif
           @if ($respuesta->correct == 0)
-            <p class="answers"> {{$respuesta->text}}</p>
+            <a class="answers" href="../answers/edit/{{$respuesta->id}}"> {{$respuesta->text}}</a>
           @endif
         @endif
       @endforeach

@@ -23,13 +23,23 @@ Route::get('/faqs', function(){
   return view('faqs');
 });
 
-
-Route::get('/game', 'GameController@index')->name('game');
-Route::post('/game', 'GameController@index');
+/* -----------------------JUEGO  --------------------------*/
+Route::get('/game', 'GameController@normalMode')->name('game');
+Route::post('/game', 'GameController@normalMode');
 Route::get('/createquestion', 'GameController@create');
 Route::post('/createquestion', 'GameController@store');
+Route::get('/game/trueorfalse', 'GameController@debunkMode')->name('debunk');
+Route::post('/game/trueorfalse', 'GameController@debunkMode');
+Route::get('/game/lightning', 'GameController@lightningMode')->name('lightning');;
+Route::post('/game/lightning', 'GameController@lightningMode');
 
+/* ---------------------PERFIL -------------------------*/
 Route::get('/profile', 'ProfileController@index')->name('profile');
+
+Route::get('/friends', 'FriendsController@index')->name('friends');
+Route::get('/friends/add', 'FriendsController@create');
+Route::post('/friends/add', 'FriendsController@store');
+
 
 Auth::routes();
 
