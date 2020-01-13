@@ -22,6 +22,9 @@ Route::get('/', function(){
 Route::get('/faqs', function(){
   return view('faqs');
 });
+Route :: get('/ranking',function(){
+  return view ('amigos');
+});
 
 /* -----------------------JUEGO  --------------------------*/
 Route::get('/game', 'GameController@normalMode')->name('game');
@@ -36,7 +39,7 @@ Route::post('/game/lightning', 'GameController@lightningMode');
 /* ---------------------PERFIL -------------------------*/
 Route::get('/profile', 'ProfileController@index')->name('profile');
 
-Route::get('/friends', 'FriendsController@index')->name('friends');
+Route::get('/amigos', 'FriendsController@index')->name('friends');
 Route::get('/friends/add', 'FriendsController@create');
 Route::post('/friends/add', 'FriendsController@store');
 
