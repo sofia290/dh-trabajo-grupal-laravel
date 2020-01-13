@@ -1,0 +1,24 @@
+.foto{
+  width: 120px;
+  border-radius: 50%;
+}
+.contenedorranking{
+  display: flex;
+  flex-direction: column;
+
+}
+.Principal{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.secundario{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+}
+.usuario{
+  margin-left: 10px;
+  margin-right: 10px;
+}
