@@ -23,6 +23,8 @@
     <link rel="stylesheet" href="{{asset('css/navbar.css')}}">
     <link rel="stylesheet" href="{{asset('css/game.css')}}">
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/amigos.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/ranking.css')}}">
 
     <link rel="shortcut icon" type="image/png" href="{{ asset('images/recycle-logo.png') }}">
 
