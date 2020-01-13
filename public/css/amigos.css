@@ -1,24 +1,54 @@
-body{
+.body{
+  margin: 0px;
   padding: 0px;
-  margin:0px;;
+}
+.contenedor{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.aside1{
+  background: red;
+  width: 10%;
+}
+.aside2{
+  background: red;
+  width: 10%;
 }
 .contenedoramigos{
-
-  border: 1px solid black;
-  display: inline;
+  display: flex;
+  flex-direction: row;
+  border: 1px solid pink;
+}
+.foto{
+  width: 20%;
 }
 .amigo{
-    border: 1px solid black;
-    display: flex;
+  width: 80%;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 
 }
-.fotoperfil{
-  width: 30%;
-}
-.nombre{
-  color: blue;
-}
-.info{
-  padding: 5px;
-  margin: 10px;
+@media (max-width:1500px) {
+  .contenedor{
+
+    padding: 0px;
+  }
+  .contenedoramigos{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .aside1{
+    display: none;
+  }
+  .aside2{
+  display: none;
+  }
+  .amigo{
+    width: 100%;
+      margin-top: 10px;
+  }
 }
