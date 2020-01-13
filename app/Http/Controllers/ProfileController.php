@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
+use App\Friend;
+use App\User;
 
 class ProfileController extends Controller
 {
@@ -20,7 +23,10 @@ class ProfileController extends Controller
 
     public function index()
     {
-      return view('profile');
+      $user = Auth::user()->id;
+      $friends = Friend::where("user_id1", "=", $user)->orWhere("user_id2", "=", $user)->get();
+      //dd($friends[0]["user_id2"]);
+      return view('profile', compact('friends'));
     }
 
     /**

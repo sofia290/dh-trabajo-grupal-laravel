@@ -13,7 +13,7 @@ class FriendsController extends Controller
      */
     public function index()
     {
-        return view('friends.friends');
+        return view('amigos');
     }
 
     /**
@@ -23,7 +23,7 @@ class FriendsController extends Controller
      */
     public function create()
     {
-        //
+        return view('friends.add');
     }
 
     /**

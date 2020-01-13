@@ -114,6 +114,20 @@ class QuestionController extends Controller
         return redirect("/questions/all");
 
     }
+    public function verify($id)
+    {
+      $pregunta = Question::find($id);
+      $pregunta->verified = 1;
+      $pregunta->save();
+      return redirect("/questions/all");
+    }
+    public function deactivate($id)
+    {
+      $pregunta = Question::find($id);
+      $pregunta->verified = 0;
+      $pregunta->save();
+      return redirect("/questions/all");
+    }
 
     /**
      * Remove the specified resource from storage.

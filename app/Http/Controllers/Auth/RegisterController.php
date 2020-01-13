@@ -86,7 +86,7 @@ class RegisterController extends Controller
         if ($request->file('profile_picture')) {
           $profileImage = $request->file('profile_picture')->storeAs( "public", $data['email']. '.jpg');
           $profileImageSaveAsName = $data['email'] . '.jpg';
-          $upload_path = 'storage/';
+          $upload_path = '../../storage/';
           $profile_image_url = $upload_path . $profileImageSaveAsName;
         }
         else {

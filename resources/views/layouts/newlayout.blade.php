@@ -11,6 +11,10 @@
 
     <title>{{ config('app.name', 'Ecopreguntas') }}</title>
 
+    <!-- Scripts-->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
@@ -143,6 +147,7 @@
       </header>
       <main>
         @yield('content')
+        <a href="#" id="back-to-top" title="Back to top">&uarr;</a>
       </main>
       <footer class="container-fluid">
         <div class="row">
@@ -184,6 +189,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <!-- jQuery Custom Scroller CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="/js/jquery.min.js"> </script>
+    <script src="/js/back_to_top.js"></script>
   @show
 
   @yield('extrascripts')

@@ -58,13 +58,16 @@
 @section('script')
 
   @section('extrascripts')
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="../js/game.js"></script>
+    @if ($pregunta->game_mode_id == 1)
+        <script src="../js/game.js"></script>
+    @elseif ($pregunta->game_mode_id == 2)
+      <script src="../js/game_mode2.js"></script>
+    @endif
   @endsection
 
 
   <?php
-/*  if($pregunta->game_mode_id == 1){*/
+if($pregunta->game_mode_id == 1){
   foreach ($respuestas as $respuesta) {
     if ($respuesta->correct == 1) {
       echo "<script>
@@ -74,14 +77,20 @@
       </script>";
     }
   }
-/*}
+}
 elseif ($pregunta->game_mode_id == 2) {
-  if ($preguntas->true_or_false == 1) {
+  if ($pregunta->true_or_false == 1) {
     echo "<script>
-    var respuestaCorrecta ={
-      id:" . $pregunta-> . ",
+    var respuestaCorrecta = {
+      id: 'Ja',
     };
     </script>";
   }
-}*/
+  elseif ($pregunta->true_or_false == 0) {
+    echo "<script>
+    var respuestaCorrecta = {
+    };
+    </script>";
+  }
+}
   ?>

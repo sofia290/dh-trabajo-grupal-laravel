@@ -23,6 +23,37 @@ header img{
   height: auto;
 }
 
+#back-to-top {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    z-index: 9999;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    background: #00cc6d;
+    font-size: 40px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    border: 0;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: opacity 0.2s ease-out;
+    opacity: 0;
+}
+#back-to-top:hover {
+    background: #00ac5d;
+}
+#back-to-top.show {
+    opacity: 1;
+}
+#content {
+    height: 2000px;
+}
+
+
 /*FOOTER */
 footer{
   background-color: rgba(14, 103, 30, 1);
@@ -115,17 +146,20 @@ footer a:hover{
 .user-data h2, .user-data span{
   display: none;
 }
-.user-data ul, footer ul{
+.user-data ul, footer ul, .friends-list{
   list-style: none;
 }
 
+
+/*-----------------FRIENDS RELATED CLASSES ----------------*/
 .friends li, .user_level_info li{
   display: inline;
   width: auto;
 }
 
 .friends img{
-  width: 100%;
+  width: 125px;
+  height: 125px;
   object-fit: cover;
   display: inline-block;
   border-radius: 50%;
@@ -139,6 +173,49 @@ footer a:hover{
 }
 .contenedor{
   /*display: flex;*/
+}
+
+
+
+.friends-list li img{ /* LISTA DE AMIGOS EN friends/add*/
+  width: 75px;
+  height: 75px;
+}
+.green-line-bottom{
+  margin-top: 10px;
+  border-bottom: 2px solid #00cc6d;
+}
+
+.friends-list li{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.friends-list li button{
+  height: 40px;
+  margin-top: 15px;
+}
+
+.add_friends_data{
+  width: 65%;
+  margin-left: 5px;
+  margin-top: 15px;
+  line-height: 10px;
+}
+.add_friends_data li{
+  justify-content: left;
+}
+
+.add_friends_data h3{
+  font-size: 18px;
+}
+
+.add-friend-button{
+  font-size: 14px;
+  font-weight: bold;
+  padding: 5px 10px;
+  border: 1px solid rgb(209, 209, 209);
 }
 
 #profile_picture_change{

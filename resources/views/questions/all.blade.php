@@ -69,12 +69,13 @@
     @foreach ($preguntas as $pregunta)
     <div class="pregunta">
       <h4>{{$pregunta->id}} . {{$pregunta->text}}</h4>
-      <p> Puntos: {{$pregunta->points}}</p>
+      <p> Modo de juego: {{$pregunta->game_mode_id}}</p>
       @if ($pregunta->verified)
         <p> Verificada</p>
+        <a href="/questions/deactivate/{{$pregunta->id}}"> Desactivar </a>
         @else
           <p> No verificada</p>
-          <a href="#"> Verificar </a>
+          <a href="/questions/verify/{{$pregunta->id}}"> Verificar </a>
       @endif
       <a href="/pregunta/{{$pregunta->id}}"> Ver detalle</a>
       <a href="/questions/edit/{{$pregunta->id}}"> Editar</a>

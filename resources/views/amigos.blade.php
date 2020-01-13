@@ -2,8 +2,8 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="amigos.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/amigos.css">
     <title></title>
   </head>
   <body>
@@ -60,7 +60,7 @@
 
             <button type="button" name="button"> quitar de amigos </button>
           </div>
-      
+
 
             </div>
   </body>

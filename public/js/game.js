@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+  $('body').css("background-color", "rgb(45, 207, 93)");
   setTimeout(function(){
     $('body').addClass('loaded');
     $('h1').css('color','#222222');

@@ -61,6 +61,8 @@ Route::group(['middleware' => 'admin'], function () {
   Route::get('/questions/edit/{id}','QuestionController@edit');
   Route::post('/questions/edit/{id}','QuestionController@update');
   Route::get('/questions/destroy/{id}','QuestionController@destroy');
+  Route::get('/questions/verify/{id}', 'QuestionController@verify');
+  Route::get('/questions/deactivate/{id}', 'QuestionController@deactivate');
 
   Route::get("/answers/all","AnswerController@index");
   Route::get('/answers/create','AnswerController@create');
